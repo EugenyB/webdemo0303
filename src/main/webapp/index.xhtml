@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <title>Teachers</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <h:dataTable value="#{teacherBean.teachers}" var="t">
+            <h:column>
+                <f:facet name="header">id</f:facet>
+                <h:outputText value="#{t.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">name</f:facet>
+                <h:outputText value="#{t.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">experience</f:facet>
+                <h:outputText value="#{t.experience}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Subjects</f:facet>
+                <h:outputText value="#{t.subjects}"/>
+            </h:column>
+        </h:dataTable>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Name" for="name"/>
+                <h:inputText value="#{teacherBean.teacher.name}" id="name"/>
+                <h:outputLabel value="Experience" for="exp"/>
+                <h:inputText value="#{teacherBean.teacher.experience}" id="exp"/>
+                <h:commandButton value="Add" action="#{teacherBean.add()}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</f:view>
+</html>
